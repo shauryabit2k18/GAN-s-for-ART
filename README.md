@@ -29,6 +29,6 @@ where,
      **G(z)**      = *generator* network
 ### So basically, training the GAN has 2 parts:
 #### Part-1:
-            The *discriminator* is trained while the *generator* is idle. In this phase, the network is only forward propogation and no_backpropagation is done. It is also trained on the fake generated data obtain from the *generator*
+The *discriminator* is trained while the *generator* is idle. In this phase, the network is only forward propogation and no_backpropagation is done. It is also trained on the fake generated data obtain from the *generator*.
 #### Part-2:
-            The *generator* is trained while the *discriminator* is idle. After the **D(x)** is trained by the generated fake data of **G(z)**, we get its predictions and use the results for training the *generator* and get better results form the previous try and then it again trys to fool the *discriminator* somehow.
+The *generator* is trained while the *discriminator* is idle. After the **D(x)** is trained by the generated fake data of **G(z)**, we get its predictions and use the results for training the *generator* and get better results form the previous try and then it again trys to fool the *discriminator* somehow.
