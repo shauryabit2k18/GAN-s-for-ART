@@ -16,4 +16,19 @@ The training of the model is done in an adverserial setting, *(i.e. it involves 
 We use **DeepLearning(Neural networks)** for building the architecture of the *GAN's* model
 
 ## Basic Idea
-In *GAN's*, there is a *generator* and a *discriminator*. the generator generates fake images and tries to fool the discriminator. The discriminator on the othe hand tries to distinguish between fake and real samples.
+In *GAN's*, there is a *generator* and a *discriminator*. the generator generates fake images and tries to fool the discriminator. The discriminator on the othe hand tries to distinguish between fake and real samples. Here the generative model cpatures the distribution of data and is traines in cuch a manner that it tries to minimize the probability of the *discriminator* to make a mistake. The *discriminator*, on the other hand is based on a model that estimates the probability that the sample it gets from the training data and the generator is True of  False.
+The *GAN's* can be thought as a min-max algorithim, where *discriminator* is trying to maximize its rewards **V(D,G)** and the *generator* is trying to minimize the *discriminators* rewards.
+![GitHub Logo](/images/formula.jpeg)
+Format: ![Alt Text](url)
+where,
+     **P data(x)** = distribution of real data
+     **P(z)**      = distribution for *generator*
+     **x**         = sample from *P data(x)*
+     **z**         = sample from *P(z)*
+     **D(x)**      = *discriminator* network
+     **G(z)**      = *generator* network
+### So basically, training the GAN has 2 parts:
+#### Part-1:
+            The *discriminator* is trained while the *generator* is idle. In this phase, the network is only forward propogation and no_backpropagation is done. It is also trained on the fake generated data obtain from the *generator*
+#### Part-2:
+            The *generator* is trained while the *discriminator* is idle. After the **D(x)** is trained by the generated fake data of **G(z)**, we get its predictions and use the results for training the *generator* and get better results form the previous try and then it again trys to fool the *discriminator* somehow.
